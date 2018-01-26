@@ -2,17 +2,21 @@
 
 @section('content')
 <div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">
+        <h1 style="text-decoration: underline;">{{ $newsitem->title }}</h1> 
+        
+        <div class="pubdate mt-5">Date de publication : {{ $newsitem->pubdate }}</div>
+        </div>
+  <div class="panel-body">
+          <div class="description">{!! htmlspecialchars_decode($newsitem->description, ENT_COMPAT | ENT_HTML401) !!}</div>
+          
+        <button class="btn"><a href="{{ $newsitem->link }}" class="link">Visit website</a></button><br />
+  </div>
+</div>
 
-        
-        <h1>{{ $newsitem->title }}</h1>
-        <p>{{ $newsitem->description }}</p>
-        <a href="{{ $newsitem->link }}">{{$newsitem->link}}</a><br>
-        {{ $newsitem->pubdate }}
-        <br>
-        <a href="{{ action('NewsitemController@show', $newsitem['id']) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-        <a href="{{ action('NewsitemController@edit', $newsitem['id']) }}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-        <a href="{{ action('NewsitemController@destroy', $newsitem['id']) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-        
+  <a href="{{ action('HomeController@index') }}" class="btn btn-success pull-left">Back <i class="fa fa-caret-square-o-left"></i></a>
+
 
 </div>
 @endsection

@@ -40,7 +40,7 @@ class UserstypeController extends Controller
           Userstype::create($request->all());
         //   dd($newsitem);
        
-        return redirect('/home/userstypes')->with('success',"La news a bien été ajouté");
+        return redirect('/home/userstypes')->with('success',"Le type d'utilisateur a été ajouté");
     }
     
     public function edit($id)
@@ -60,7 +60,7 @@ class UserstypeController extends Controller
 
         $userstype->name = $request->get('name');
         $userstype->save();
-        return redirect('/home/userstypes')->with('success',"La type utilisateur a bien été modifié");
+        return redirect('/home/userstypes')->with('success',"Le type d'utilisateur a bien été modifié");
 
     }
 

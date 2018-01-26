@@ -13,7 +13,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">name</label>
+                            <label for="name" class="col-md-4 control-label">Nom du site</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" required autofocus>
@@ -27,10 +27,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('rss_feed_link') ? ' has-error' : '' }}">
-                            <label for="rss_feed_link" class="col-md-4 control-label">rss_feed_link</label>
+                            <label for="rss_feed_link" class="col-md-4 control-label">Lien du flux RSS</label>
 
                             <div class="col-md-6">
-                                <input id="rss_feed_link" type="text" class="form-control" name="rss_feed_link" required autofocus>
+                                <input id="rss_feed_link" type="text" class="form-control" name="rss_feed_link" required autofocus> 
 
                                 @if ($errors->has('rss_feed_link'))
                                     <span class="help-block">

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class RssFeedController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
 
@@ -31,7 +37,7 @@ class RssFeedController extends Controller
           RssFeed::create($request->all());
         //   dd($newsitem);
         
-        return view('home');
+        return redirect('/home')->with('success',"Le flux a bien été ajouté");
     }
 
     public function viewed()

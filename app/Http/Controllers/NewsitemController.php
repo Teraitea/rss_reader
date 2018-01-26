@@ -100,4 +100,9 @@ class NewsitemController extends Controller
         $newsitem->delete();
         return redirect('/home/newsitems')->with('success',"L'utilisateur à bien été supprimer");
     }
+
+    public function viewed($id)
+    {
+        $newsitem = Newsitem::find($id)->where;
+    }
 }

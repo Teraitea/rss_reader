@@ -12,12 +12,13 @@ class UserstypesTableSeeder extends Seeder
     public function run()
     {
         
-        $userstypes = [];
-        for($i = 0; $i < 3; $i++):
-        $userstypes[] = [
-            'name' => str_random(10),
-        ];
-        endfor;
+        $userstypes = [
+            [
+                'name'=>'superadmin',
+            ],
+            [
+                'name'=>'user',
+            ]];
 
         foreach($userstypes AS $usertype):
         

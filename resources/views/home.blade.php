@@ -22,8 +22,9 @@
 
                     <a href="{{ url('/home/users') }}"><i class="fa fa-user"></i> User's information</a><br />
                     <a href="{{ url('/home/userstypes') }}"><i class="fa fa-user"></i> User's type information</a><br />
-                    <a href="{{ url('/home/newsitems') }}"><i class="fa fa-user"></i> Newsitem's information</a><br />
-                    <a href="{{ url('/home/categorys') }}"><i class="fa fa-user"></i> Category's information</a>
+                    {{-- <a href="{{ url('/home/categorys') }}"><i class="fa fa-user"></i> Category's information</a><br/> --}}
+                    
+                    <a href="{{ url('/home/newsitems') }}"><i class="fa fa-rss"></i> Rss Feeds</a><br />
                 </div>
             </div>
         </div>

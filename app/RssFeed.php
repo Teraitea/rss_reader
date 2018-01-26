@@ -30,7 +30,7 @@ class RssFeed extends Model
                 $newsitem = New NewsItem();
                 $newsitem->user_id = $user->id;
                 $newsitem->title =$item->title;
-                $newsitem->description =$item->description;
+                $newsitem->description =htmlspecialchars_decode($item->description);
                 $newsitem->link =$item->link ;
                 $newsitem->rss_feed_id = $feed->id;
                 $newsitem->category_id = 1;
