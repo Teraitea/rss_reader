@@ -74,7 +74,6 @@ Route::get('/home/userstypes/{id}/delete', 'UserstypeController@destroy');
 
 ///////////////////////////////////////////////////////////////////////////
 //CATEGORY
-//USERTYPE
 Route::get('/home/categorys','CategoryController@index');
 
 //Créer un usertype
@@ -90,3 +89,11 @@ Route::get('/home/categorys/{id}','CategoryController@show');
 
 //route pour supprimer un utilisateur
 Route::get('/home/categorys/{id}/delete', 'CategoryController@destroy');
+
+///////////////////////////////////////////////////////////////////////////
+//CATEGORY
+Route::get('/home/rssfeeds','RssFeedController@index');
+
+//Créer un RssFeedController
+Route::post('/home/rssfeeds', 'RssFeedController@store');
+Route::get('/home/rssfeeds/new', 'RssFeedController@new');

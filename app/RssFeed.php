@@ -8,7 +8,9 @@ use App\NewsItem;
 
 class RssFeed extends Model
 {
-    
+
+    protected $fillable = ['name', 'user_id', 'rss_feed_link'];
+
     public static function getMyRssFeed(){
         $user = Auth::user();
         $rssFeeds = RssFeed::all()->where('user_id',$user->id);
@@ -22,7 +24,7 @@ class RssFeed extends Model
         $feeds = RssFeed::getMyRssFeed();
         
         foreach($feeds as $feed) {
-            // $xml = simplexml_load_file($feed->rss_feed_link);
+            $xml = simplexml_load_file($feed->rss_feed_link);
             foreach($xml->xpath("//item") as $item):
                 
                 $newsitem = New NewsItem();
