@@ -33,4 +33,9 @@ class RssFeedController extends Controller
         
         return view('home');
     }
+
+    public function viewed()
+    {
+        
+    }
 }

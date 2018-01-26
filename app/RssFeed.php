@@ -36,7 +36,7 @@ class RssFeed extends Model
                 $newsitem->category_id = 1;
                 $newsitem->pubdate = '2018-01-25 07:41:32';
                 $newsitem->save();
-                
+                // dd($newsitem);
             endforeach;
         }
         
