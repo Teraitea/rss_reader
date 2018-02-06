@@ -98,3 +98,23 @@ Route::get('rssfeed/{id}','RssFeedController@api_show');
 
 //route pour supprimer une catégorie
 Route::delete('rssfeed/{id}', 'RssFeedController@api_destroy');
+
+
+/****************************************************************************
+****************************    usertypes    ********************************
+*****************************************************************************/
+
+//route pour lister toutes les catégories
+Route::get('userstypes','UserstypeController@api_index');
+
+//route pour créer une catégorie par l'api
+Route::post('userstype','UserstypeController@api_store');
+
+//route pour la modification d'une catégorie
+Route::put('userstype','UserstypeController@api_store');
+
+//route pour la vue sur une seul catégorie
+Route::get('userstype/{id}','UserstypeController@api_show');
+
+//route pour supprimer une catégorie
+Route::delete('userstype/{id}', 'UserstypeController@api_destroy');

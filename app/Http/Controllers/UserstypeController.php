@@ -82,11 +82,39 @@ class UserstypeController extends Controller
     }
     // méthode pour l'api
     
-    public function listUserstype()
+    public function api_index()
     {
-        $userstype = Userstype::all();
+        $userstypes = Userstype::all();
 
-        return UserstypeResource::collection($userstype);
+        return UserstypeResource::collection($userstypes);
+    }
+
+    public function api_show($id)
+    {
+        $userstype = Userstype::findOrFail($id);
+        
+        return new UserstypeResource($userstype);
+
+    }
+
+    public function api_store(Request $request)
+    {
+        $userstype = $request->isMethod('put') ? Userstype::findOrFail($request->id) : new Userstype;
+
+        $userstype->id = $request->input('id');
+        $userstype->name = $request->input('name');
+
+        if($userstype->save()):
+            return new UserstypeResource($userstype);
+        endif;
+    }
+
+    public function api_destroy($id)
+    {
+        $userstype = Userstype::findOrFail($id);
+        if($userstype->delete()):        
+            return new UserstypeResource($userstype);
+        endif;
     }
 }
 

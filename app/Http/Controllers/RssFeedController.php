@@ -65,25 +65,23 @@ class RssFeedController extends Controller
     
     public function api_store(Request $request)
     {
-        $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
+        $rssfeed = $request->isMethod('put') ? RssFeed::findOrFail($request->id) : new RssFeed;
 
-        $user->id = $request->input('id');
-        $user->lastname = $request->input('lastname');
-        $user->firstname = $request->input('firstname');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->user_type_id = $request->input('user_type_id');
+        $rssfeed->id = $request->input('id');
+        $rssfeed->name = $request->input('name');
+        $rssfeed->user_id = $request->input('user_id');
+        $rssfeed->rss_feed_link = $request->input('rss_feed_link');
 
-        if($user->save()):
-            return new UserResource($user);
+        if($rssfeed->save()):
+            return new RssFeedResource($rssfeed);
         endif;
     }  
     
     public function api_destroy($id)
     {
-        $user = User::findOrFail($id);
-        if($user->delete()):
-           return new UserResource($user);
+        $rssfeed = RssFeed::findOrFail($id);
+        if($rssfeed->delete()):
+           return new RssFeedResource($rssfeed);
         endif;
     }
 }
