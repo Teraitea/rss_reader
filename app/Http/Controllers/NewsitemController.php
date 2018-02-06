@@ -109,10 +109,44 @@ class NewsitemController extends Controller
 
     //méthode pour l'api
 
-    public function listNewsitems()
+    public function api_index()
     {
         $newsitems = Newsitem::all();
 
         return NewsitemResource::collection($newsitems);
+    }
+
+    public function api_show($id)
+    {
+        $newsitem = Newsitem::findOrFail($id);
+        
+        return new NewsitemResource($newsitem);
+
+    }
+
+    public function api_store(Request $request)
+    {
+        $newsitem = $request->isMethod('put') ? Newsitem::findOrFail($request->id) : new Newsitem;
+
+        $newsitem->id = $request->input('id');
+        $newsitem->user_id = $request->input('user_id');
+        $newsitem->title = $request->input('title');
+        $newsitem->link = $request->input('link');
+        $newsitem->description = $request->input('description');
+        $newsitem->rss_feed_id = $request->input('rss_feed_id');
+        $newsitem->category_id = $request->input('category_id');
+        $newsitem->pubdate = $request->input('pubdate');
+
+        if($newsitem->save()):
+            return new NewsitemResource($newsitem);
+        endif;
+    }
+
+    public function api_destroy($id)
+    {
+        $newsitem = Newsitem::findOrFail($id);
+        if($newsitem->delete()):        
+            return new NewsitemResource($newsitem);
+        endif;
     }
 }
