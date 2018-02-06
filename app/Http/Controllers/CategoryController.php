@@ -5,14 +5,16 @@ use App\User;
 Use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Resources\Category as CategoryResource;
+
 
 class CategoryController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
@@ -79,5 +81,43 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return redirect('/home/categorys')->with('success',"La catégorie à bien été supprimer");
+    }
+
+    // Méthodes pour l'API
+
+    public function api_index()
+    {
+        $categories = Category::all();
+
+        return CategoryResource::collection($categories);
+    }
+
+    public function api_show($id)
+    {
+        $category = Category::findOrFail($id);
+        
+        return new CategoryResource($category);
+
+    }
+
+    public function api_store(Request $request)
+    {
+        $category = $request->isMethod('put') ? Category::findOrFail($request->id) : new Category;
+
+        $category->id = $request->input('id');
+        $category->name = $request->input('name');
+        $category->user_id = $request->input('user_id');
+
+        if($category->save()):
+            return new CategoryResource($category);
+        endif;
+    }
+
+    public function api_destroy($id)
+    {
+        $category = Category::findOrFail($id);
+        if($category->delete()):        
+            return new CategoryResource($category);
+        endif;
     }
 }

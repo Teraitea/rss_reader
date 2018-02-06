@@ -6,13 +6,14 @@ use App\User;
 use App\Newsitem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Resources\Newsitem as NewsitemResource;
 
 class NewsitemController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function index()
     {
@@ -104,5 +105,14 @@ class NewsitemController extends Controller
     public function viewed($id)
     {
         $newsitem = Newsitem::find($id)->where;
+    }
+
+    //méthode pour l'api
+
+    public function listNewsitems()
+    {
+        $newsitems = Newsitem::all();
+
+        return NewsitemResource::collection($newsitems);
     }
 }

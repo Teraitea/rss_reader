@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Http\Resources\User as UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Display a listing of the resource.
@@ -20,6 +21,7 @@ class UserController extends Controller
     {
 
         $userid = Auth::user()->user_type_id;
+        dd($userid);
         // dd($userid);
         // $users = User::all()->where('user_type_id',$user->user_type_id);
         if($userid == 1):  
@@ -29,7 +31,9 @@ class UserController extends Controller
         else:
             return redirect('/home')->with('error',"Seuls les super admins on le droit de voir les informations des utilisateurs");
         endif;
+        
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -119,4 +123,46 @@ class UserController extends Controller
         $user->delete();
         return redirect('/home/users')->with('success',"L'utilisateur à bien été supprimé");
     }
-}
+
+    // méthodes pour l'api
+    
+    public function api_index()
+    {
+        $users = User::all();
+
+        return UserResource::collection($users);
+    }  
+    
+    public function api_show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return new UserResource($user);
+    }
+    
+    public function api_store(Request $request)
+    {
+        $user = $request->isMethod('put') ? User::findOrFail($request->id) : new User;
+
+        $user->id = $request->input('id');
+        $user->lastname = $request->input('lastname');
+        $user->firstname = $request->input('firstname');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->user_type_id = $request->input('user_type_id');
+
+        if($user->save()):
+            return new UserResource($user);
+        endif;
+    }  
+    
+    public function api_destroy($id)
+    {
+        $user = User::findOrFail($id);
+        if($user->delete()):
+           return new UserResource($user);
+        endif;
+    }
+    
+
+} 

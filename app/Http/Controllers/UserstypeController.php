@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Userstype;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\Userstype as UserstypeResource;
+
 class UserstypeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
@@ -78,7 +80,14 @@ class UserstypeController extends Controller
     
 
     }
+    // méthode pour l'api
+    
+    public function listUserstype()
+    {
+        $userstype = Userstype::all();
 
+        return UserstypeResource::collection($userstype);
+    }
 }
 
 // 40 46 12 79 Vairea

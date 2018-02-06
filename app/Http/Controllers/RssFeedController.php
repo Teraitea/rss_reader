@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 use App\RssFeed;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Resources\RssFeed as RssFeedResource;
 
 class RssFeedController extends Controller
 {
     
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function index()
     {
@@ -43,5 +44,14 @@ class RssFeedController extends Controller
     public function viewed()
     {
         
+    }
+
+    //méthode pour l'api
+
+    public function listRssfeeds()
+    {
+        $rssfeeds = RssFeed::all();
+
+        return RssFeedResource::collection($rssfeeds);
     }
 }
