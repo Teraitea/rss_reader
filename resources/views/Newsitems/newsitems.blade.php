@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.perso')
 
 @section('content')
 <div class="container-fluid">
@@ -41,11 +41,11 @@
         </td>
         </tr>
     </tbody>
-    @endforeach;
+    @endforeach
     
 </table>    
 
-<a href="{{ action('HomeController@index') }}" class="btn btn-success pull-left">Home <i class="fa fa-home"></i></a>
+<a href="{{ action('HomeController@index') }}" class="btn btn-primary pull-left">Home <i class="fa fa-home"></i></a>
 
 
 </div>

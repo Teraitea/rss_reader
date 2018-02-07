@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /****************************************************************************
 *********************************    USERS   ********************************
 *****************************************************************************/
+
 //route pour lister tous les utilisateurs
 Route::get('users','UserController@api_index');
 
@@ -31,7 +32,6 @@ Route::post('user','UserController@api_store');
 
 //route pour la modification d'un utilisateur
 Route::put('user','UserController@api_store');
-
 
 //route pour supprimer un utilisateur
 Route::delete('user/{id}', 'UserController@api_destroy');
@@ -57,7 +57,6 @@ Route::get('category/{id}','CategoryController@api_show');
 Route::delete('category/{id}', 'CategoryController@api_destroy');
 
 
-
 /****************************************************************************
 ****************************    NEWSITEMS    ********************************
 *****************************************************************************/
@@ -76,8 +75,6 @@ Route::get('newsitem/{id}','NewsitemController@api_show');
 
 //route pour supprimer une catégorie
 Route::delete('newsitem/{id}', 'NewsitemController@api_destroy');
-
-
 
 
 /****************************************************************************
