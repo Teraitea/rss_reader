@@ -12,10 +12,10 @@ class ComposerStaticInit124c5a44d2b289e0a00dbc0377799ea7
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
@@ -75,6 +75,7 @@ class ComposerStaticInit124c5a44d2b289e0a00dbc0377799ea7
         array (
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
+            'LaravelNews\\Presets\\BootstrapFour\\' => 34,
         ),
         'I' => 
         array (
@@ -227,6 +228,10 @@ class ComposerStaticInit124c5a44d2b289e0a00dbc0377799ea7
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'LaravelNews\\Presets\\BootstrapFour\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelnews/laravel-twbs4/src',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -337,6 +342,11 @@ class ComposerStaticInit124c5a44d2b289e0a00dbc0377799ea7
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Resources\\Category' => __DIR__ . '/../..' . '/app/Http/Resources/Category.php',
+        'App\\Http\\Resources\\Newsitem' => __DIR__ . '/../..' . '/app/Http/Resources/Newsitem.php',
+        'App\\Http\\Resources\\RssFeed' => __DIR__ . '/../..' . '/app/Http/Resources/RssFeed.php',
+        'App\\Http\\Resources\\User' => __DIR__ . '/../..' . '/app/Http/Resources/User.php',
+        'App\\Http\\Resources\\Userstype' => __DIR__ . '/../..' . '/app/Http/Resources/Userstype.php',
         'App\\Newsitem' => __DIR__ . '/../..' . '/app/Newsitem.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -1752,6 +1762,8 @@ class ComposerStaticInit124c5a44d2b289e0a00dbc0377799ea7
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'LaravelNews\\Presets\\BootstrapFour\\BootstrapPreset' => __DIR__ . '/..' . '/laravelnews/laravel-twbs4/src/BootstrapPreset.php',
+        'LaravelNews\\Presets\\BootstrapFour\\BootstrapPresetServiceProvider' => __DIR__ . '/..' . '/laravelnews/laravel-twbs4/src/BootstrapPresetServiceProvider.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
