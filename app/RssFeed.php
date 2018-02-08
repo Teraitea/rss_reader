@@ -13,7 +13,7 @@ class RssFeed extends Model
     protected $fillable = ['name', 'user_id', 'rss_feed_link'];
 
     public static function getMyRssFeed(){
-        $user = Auth::user(id);
+        $user = Auth::user();
         $rssFeeds = RssFeed::all()->where('user_id',$user->id);
         
         return $rssFeeds;
