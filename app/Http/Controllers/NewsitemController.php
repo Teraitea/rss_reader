@@ -62,7 +62,8 @@ class NewsitemController extends Controller
     {
         $newsitem = Newsitem::find($id);
         // dd($newsitem); 
-        $affected = DB::update('update newsitems set viewed = 1 where id = ?', [$id]);               
+        $affected = DB::update('update newsitems set viewed = 1 where id = ?', [$id]);
+        $products = DB::table('newsitems')->orderBy('pubdate')->get();               
         return view('newsitems.newsitem', compact('newsitem', 'id'));
     }
 

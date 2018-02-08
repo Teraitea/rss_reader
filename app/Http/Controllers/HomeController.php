@@ -33,7 +33,7 @@ class HomeController extends Controller
             RssFeed::retreiveNewsFromMyRssFeed();
             $newsitems = NewsItem::where([
                 ['user_id',$user->id],
-            ])->get();
+            ])->orderBy('pubdate','desc')->get();
             // dd($newsitems);
             return view('Newsitems.newsitems',['newsitems'=>$newsitems]);
         endif;
