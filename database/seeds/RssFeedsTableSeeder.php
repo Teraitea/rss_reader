@@ -12,7 +12,6 @@ class RssFeedsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         $rssFeeds = [
             [
                 'name'=>'maxburstein',

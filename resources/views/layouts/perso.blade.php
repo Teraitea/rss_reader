@@ -17,6 +17,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
@@ -27,31 +28,13 @@
 
                 <ul class="list-unstyled components">
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <a href="{{ action('HomeController@index') }}" >
                             <i class="glyphicon glyphicon-home"></i>
-                            Home
+                            Accueil
                         </a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Home 1</a></li>
-                            <li><a href="#">Home 2</a></li>
-                            <li><a href="#">Home 3</a></li>
-                        </ul>
+                        
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-briefcase"></i>
-                            About
-                        </a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                            <i class="glyphicon glyphicon-duplicate"></i>
-                            Pages
-                        </a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
-                        </ul>
-                    </li>
+                    
                     <li>
                         <a href="#">
                             <i class="glyphicon glyphicon-link"></i>
@@ -64,24 +47,21 @@
                             FAQ
                         </a>
                     </li>
-                    <li>
+                    <li class="pull-down">
                         <a href="{{ url('/home/rssfeeds/new') }}">
                             <i class="fa fa-plus"></i>
                             Ajouter du contenu
                         </a>
                     </li>
                 </ul>
-
-                         </nav>
+            </nav>
 
             <!-- Page Content Holder -->
             <div id="content">
-
-                    <div class="container-fluid">
-
-        @yield('content')
+                <div class="container">
+                    @yield('content')
+                </div>
             </div>
-        </div>
 
     
 

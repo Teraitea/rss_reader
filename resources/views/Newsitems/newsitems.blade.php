@@ -7,8 +7,21 @@
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br />
-    @endif
-    <a href="{{ url('/home/rssfeeds/new') }}" class="btn btn-success pull-right">Ajouter un flux RSS <i class="fa fa-rss"></i></a>
+    @endif    
+    
+    <div class="pull-right">
+        <li style="list-style:none;" class="dropdown">
+                <button class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ Auth::user()->firstname }} <i class="caret"></i>
+                </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ url('/') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Se déconnecter</a>
+                </li>
+            </ul>
+        </li>
+    </div>
+<p>Actualités</p>
 
 <table class="table table-striped table-hover">
     <thead>
@@ -32,11 +45,11 @@
             <td>{{ $newsitem->link }}</td>
             {{-- <td>{{ $newsitem->rss_feed_id }}</td> --}}
             {{-- <td>{{ $newsitem->category_id }}</td> --}}
-            <td>{{ $newsitem->pubdate }}</td>
+            <td>{{ \Carbon\Carbon::parse($newsitem->pubdate)->format('d/m/Y h:i:s')}}</td>
         <td>
-        <a href="{{ action('NewsitemController@show', $newsitem['id']) }}"><i class="fa fa-eye"></i></a>
+        <a href="{{ action('NewsitemController@show', $newsitem['id']) }}"><button class="btn btn-default"><i class="fa fa-eye"></i></button></a>
         {{-- <a href="{{ action('NewsitemController@edit', $newsitem['id']) }}"><i class="fa fa-pencil"></i></a> --}}
-        <a href="{{ action('NewsitemController@destroy', $newsitem['id']) }}"><i class="fa fa-trash"></i></a>
+        <a href="{{ action('NewsitemController@destroy', $newsitem['id']) }}"><button class="btn btn-default"><i class="fa fa-trash"></i></button></a>
         
         </td>
         </tr>
@@ -45,7 +58,6 @@
     
 </table>    
 
-<a href="{{ action('HomeController@index') }}" class="btn btn-primary pull-left">Home <i class="fa fa-home"></i></a>
 
 
 </div>
