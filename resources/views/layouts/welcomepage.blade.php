@@ -19,30 +19,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #150f0a;">
-  
-  <div class="sidebar-header">
-      <img align="center" src="{{ url('images/logofeedsspeed.png') }}" width="50">
-  </div>
-
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <a class="nav-link"> FeedSPEED</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item active">
-      <a class="nav-link" href="{{ route('login') }}">Se connecter</a>
-    <li class="navbar-item active">
-      <a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
-    </li>
-  </ul>
-</nav>
   @yield('content')
 </body>

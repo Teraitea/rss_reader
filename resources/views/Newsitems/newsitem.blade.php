@@ -12,6 +12,7 @@
     </div>
     <div class="card-body">
       <div class="description">{!! htmlspecialchars_decode($newsitem->description, ENT_COMPAT | ENT_HTML401) !!}</div>
+      <div class="description"><img src={{$newsitem->url_image}}></div>
       <button class="btn btn-default mt-2"><a href="{{ $newsitem->link }}" class="link">Visit website</a></button><br />
     </div>
   </div>

@@ -18,6 +18,7 @@ class CreateNewsitemsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->string('link');
+            $table->string('url_image');
             $table->longText('description');
             $table->integer('rss_feed_id');
             $table->integer('category_id');

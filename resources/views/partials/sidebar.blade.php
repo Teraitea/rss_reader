@@ -2,7 +2,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <img align="center" src="{{ url('images/feedsspeed.png') }}" width="200">
+            <img align="center" src="{{ url('images/logofeedsspeed-white.png') }}" width="200">
         </div>
 
         <ul class="list-unstyled components">
@@ -31,8 +31,7 @@
             <div class="container-fluid">
 
                 <div class="navbar-header">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                        <i class="fa fa-bars"></i>
+                        
                         <span></span>
                     </button>
                 </div>
@@ -45,9 +44,9 @@
                         <div class="navbar-header"><a href="{{ route('register') }}" class="nav-link">S'enregistrer</a></div>
                     @else
                     <div>
-                        <img class="img-thumbnail" style="height: 70px; width: 70px; position: absolute; right: 220px; bottom: -15px;" src="{{ url('images/profilepicture.jpg') }}" width="200">
+                        <img class="rounded-circle" style="height: 70px; width: 70px; position: absolute; right:236px; bottom: -8px;" src="{{ url('images/profilepicture.jpg') }}" width="200">
                     </div>  
-                    <button class="nav-link dropdown-toggle btn btn-default navbar-btn" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <button style="background: #ffbd03;color: white;" class="nav-link dropdown-toggle btn btn-default navbar-btn" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         
                       {{ Auth::user()->lastname }}
                       {{ Auth::user()->firstname }}  

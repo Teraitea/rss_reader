@@ -28,12 +28,16 @@ class RssFeed extends Model
             $xml = simplexml_load_file($feed->rss_feed_link);
             foreach($xml->xpath("//item") as $item):
                 $newsTemp = NewsItem::where('title',$item->title)->pluck('id');
-                // dd(count($newsTemp));
+                // dd($item);
+                    
                 if(count($newsTemp) == 0):
                     $carbon = new Carbon($item->pubDate);
                     $carbon->format('Y-m-d H:i:s');
+                    $image = $item->enclosure['url'];
+                    // dd($image);
                     $newsitem = New NewsItem();
                     $newsitem->user_id = $user->id;
+                    $newsitem->url_image = $image;
                     $newsitem->title =$item->title;
                     $newsitem->description =htmlspecialchars_decode($item->description);
                     $newsitem->link =$item->link ;
