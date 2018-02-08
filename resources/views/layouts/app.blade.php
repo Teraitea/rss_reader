@@ -7,8 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <link rel="shortcut icon" href="{{ url('images/logofeedsspeed.png') }}" />
+    
+    <link rel="icon" type="image/png" href="{{ url('images/logofeedsspeed.png') }}" />
     <title>FeedSPEED | @yield('title')</title>
 
     <script>
@@ -18,7 +18,7 @@
     </script>
 
     <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
     
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -88,6 +88,8 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
+
+            
         });
     </script>
 

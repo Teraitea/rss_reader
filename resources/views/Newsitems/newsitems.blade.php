@@ -7,13 +7,13 @@
 
 <p>Actualités</p>
 
-<table class="table table-striped table-hover">
+<table class="table table-sm table-hover">
     <thead>
         <tr>
             <th>#</th>
             <!-- <th>User ID</th> -->
             <th>Titre de l'article</th>
-            <th>Lien de l'article</th>
+            {{-- <th>Lien de l'article</th> --}}
             {{-- <th>Rss Feed ID</th> --}}
             {{-- <th>Category ID</th> --}}
             <th>Date de publication</th>
@@ -22,16 +22,20 @@
     </thead>
     <tbody>
         @foreach($newsitems as $newsitem)
-        <tr>
+        @if($newsitem->viewed == 1)
+            <tr class="alert-dark">
+        @else
+            <tr>
+            @endif
             <td>{{ $newsitem->id }}</td>
-            <!-- <td>{{ $newsitem->user_id }}</td> -->
-            <td>{{ $newsitem->title }}</td>
-            <td>{{ $newsitem->link }}</td>
+            {{-- <td>{{ $newsitem->user_id }}</td> --}}
+            <td><a href="{{ action('NewsitemController@show', $newsitem['id']) }}">{{ $newsitem->title }}</a></td>
+            {{-- <td>{{ $newsitem->link }}</td> --}}
             {{-- <td>{{ $newsitem->rss_feed_id }}</td> --}}
             {{-- <td>{{ $newsitem->category_id }}</td> --}}
-            <td>{{ \Carbon\Carbon::parse($newsitem->pubdate)->format('d/m/Y h:i:s')}}</td>
+            <td>{{ \Carbon\Carbon::parse($newsitem->pubdate)->format('d/m/Y h:i')}}</td>
         <td>
-        <a href="{{ action('NewsitemController@show', $newsitem['id']) }}"><button class="btn btn-default"><i class="fa fa-eye"></i></button></a>
+        {{-- <a href="{{ action('NewsitemController@show', $newsitem['id']) }}"><button class="btn btn-default"><i class="fa fa-eye"></i></button></a> --}}
         {{-- <a href="{{ action('NewsitemController@edit', $newsitem['id']) }}"><i class="fa fa-pencil"></i></a> --}}
         <a href="{{ action('NewsitemController@destroy', $newsitem['id']) }}"><button class="btn btn-default"><i class="fa fa-trash"></i></button></a>
         

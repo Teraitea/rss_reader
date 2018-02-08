@@ -9,10 +9,10 @@ use App\Http\Resources\RssFeed as RssFeedResource;
 class RssFeedController extends Controller
 {
     
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index()
     {

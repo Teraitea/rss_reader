@@ -6,14 +6,15 @@ use App\User;
 use App\Newsitem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Newsitem as NewsitemResource;
 
 class NewsitemController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index()
     {
@@ -60,7 +61,8 @@ class NewsitemController extends Controller
     public function show($id)
     {
         $newsitem = Newsitem::find($id);
-        // dd($newsitem);                
+        // dd($newsitem); 
+        $affected = DB::update('update newsitems set viewed = 1 where id = ?', [$id]);               
         return view('newsitems.newsitem', compact('newsitem', 'id'));
     }
 
