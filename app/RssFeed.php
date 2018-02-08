@@ -27,18 +27,22 @@ class RssFeed extends Model
         foreach($feeds as $feed) {
             $xml = simplexml_load_file($feed->rss_feed_link);
             foreach($xml->xpath("//item") as $item):
-                $carbon = new Carbon($item->pubDate);
-                $carbon->format('Y-m-d H:i:s');
+                $newsTemp = NewsItem::where('title',$item->title)->pluck('id');
+                // dd(count($newsTemp));
+                if(count($newsTemp) == 0):
+                    $carbon = new Carbon($item->pubDate);
+                    $carbon->format('Y-m-d H:i:s');
+                    $newsitem = New NewsItem();
+                    $newsitem->user_id = $user->id;
+                    $newsitem->title =$item->title;
+                    $newsitem->description =htmlspecialchars_decode($item->description);
+                    $newsitem->link =$item->link ;
+                    $newsitem->rss_feed_id = $feed->id;
+                    $newsitem->category_id = 1;
+                    $newsitem->pubdate =$carbon;
+                    $newsitem->save();
+                endif;
                 
-                $newsitem = New NewsItem();
-                $newsitem->user_id = $user->id;
-                $newsitem->title =$item->title;
-                $newsitem->description =htmlspecialchars_decode($item->description);
-                $newsitem->link =$item->link ;
-                $newsitem->rss_feed_id = $feed->id;
-                $newsitem->category_id = 1;
-                $newsitem->pubdate =$carbon;
-                $newsitem->save();
                 // dd($newsitem);
             endforeach;
         }
