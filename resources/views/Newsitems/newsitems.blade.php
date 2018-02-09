@@ -4,8 +4,14 @@
 
 @section('content')
 <div class="container-fluid">
+@if(count($newsitems) == 0)
+<h2>Bienvenue sur votre page d'accueil</h2>
+<p>Pour commencer, veuillez ajouter un flux rss, en cliquant <strong><a style="text-decoration:underline;" href=" {{ url('home/rssfeeds/new') }} ">ici</a></strong></p>
+@else
 <p>Actualités</p>
 <button id="bouton">Changer de vue</button>
+    @endif
+
 <div id="firstview">
   @foreach($newsitems->chunk(3) as $chunk)
   <div class="row">
@@ -68,7 +74,6 @@
         </tr>
     </tbody>
     @endforeach
-    
 </table>    
 </div>
   
@@ -77,12 +82,15 @@
       $(document).ready(function(){
 
         var etat = 0;
+        $('#secondView').hide();
         function changeView(){
           if(etat = 1){
-            $("#firstview").toggle();
+            $("#firstview").show();
+            $("#secondView").hide();
             etat = 0;
           } else if(etat=0) {
-            $("#secondView").toggle();
+            $("#secondView").show();
+            $("#firstview").hide();
             etat = 1;
           }
         }

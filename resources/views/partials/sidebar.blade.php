@@ -1,6 +1,7 @@
 <div class="wrapper">
     <!-- Sidebar Holder -->
-    <nav id="sidebar">
+    <nav id="sidebar" style="
+    z-index: 99999999999;">
         <div class="sidebar-header">
             <img align="center" src="{{ url('images/logofeedsspeed-white.png') }}" width="200">
         </div>
@@ -27,7 +28,7 @@
     <!-- Page Content Holder -->
     <div id="content">
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar fixed-top navbar-default">
             <div class="container-fluid">
 
                 <div class="navbar-header">
