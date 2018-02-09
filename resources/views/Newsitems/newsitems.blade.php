@@ -80,22 +80,21 @@
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
       $(document).ready(function(){
-
+      $('#secondView').hide()
         var etat = 0;
-        $('#secondView').hide();
         function changeView(){
-          if(etat = 1){
-            $("#firstview").show();
-            $("#secondView").hide();
-            etat = 0;
-          } else if(etat=0) {
-            $("#secondView").show();
+          if(etat = 0){
             $("#firstview").hide();
+            $("#secondView").show();
             etat = 1;
+          } else if(etat = 1) {
+            $("#firstview").hide();
+            $("#secondView").show();
+            etat = 0;
           }
         }
         $("#bouton").click(function(){
-          setTimeout(changeView, 1000);
+          changeView();
         });
       });
     </script>
